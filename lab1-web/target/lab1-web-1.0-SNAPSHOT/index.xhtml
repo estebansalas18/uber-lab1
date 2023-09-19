@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    >
+    <h:head>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <title>"#{msg_conductores.title}"</title>
+        <script name="jquery/jquery.js" library="primefaces"></script>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <h:commandButton
+                action="#{conductoresBean.changeLanguage('')}"
+                value="English"
+                image="resources/eeuu.png"
+                styleClass="bandera"
+                />
+
+            <h:commandButton
+                action="#{conductoresBean.changeLanguage('spanish')}"
+                value="Spanish"
+                image="resources/spain.png"
+                styleClass="bandera"
+                />
+        </h:form>
+        <h:form prependId="false">
+            <p:panelGrid columns="3">
+                <h:outputText value="#{msg_conductores.subtitle}" style="font-weight: bold;" />
+                <p:outputLabel value=""/>
+                <p:outputLabel value=""/>
+                
+                <p:outputLabel value="#{msg_conductores.cedula}" for="cedula" />
+                <p:inputText
+                    id="cedula"
+                    label="#{msg_conductores.cedula}"
+                    value="#{conductoresBean.cedula}"
+                    required="true"
+                    validator="#{conductoresBean.validateCedula}"
+                    >
+                    <f:attribute
+                        name="requiredMessage"
+                        value="#{msg_conductores.cedula_req}"
+                        />
+                </p:inputText>
+                <p:message for="cedula" styleClass="errormsg" />
+
+                <p:outputLabel value="#{msg_conductores.nombre}" for="nombre" />
+                <p:inputText
+                    id="nombre"
+                    label="#{msg_conductores.nombre}"
+                    value="#{conductoresBean.nombre}"
+                    required="true"
+                    validator="#{conductoresBean.validateNombre}"
+                    >
+                    <f:attribute
+                        name="requiredMessage"
+                        value="#{msg_conductores.nombre_req}"
+                        />
+                </p:inputText>
+                <p:message for="nombre" styleClass="errormsg" />
+
+
+                <p:outputLabel
+                    value="#{msg_conductores.fecha_nacimiento}"
+                    for="fecha_nacimiento"
+                    />
+                <p:calendar
+                    id="fecha_nacimiento"
+                    label="#{msg_conductores.fecha_nacimiento}"
+                    value="#{conductoresBean.fecha_nacimiento}"
+                    required="true"
+                    pattern="dd/MM/yyyy"
+                    validator="#{conductoresBean.validateFechaNacimiento}"
+                    >
+                    <f:attribute
+                        name="requiredMessage"
+                        value="#{msg_conductores.fecha_nacimiento_req}"
+                        />
+                </p:calendar>
+                <p:message for="fecha_nacimiento" styleClass="errormsg" />
+
+                <p:outputLabel value="#{msg_conductores.licencia}" for="licencia" />
+                <p:inputText
+                    id="licencia"
+                    label="#{msg_conductores.licencia}"
+                    value="#{conductoresBean.licencia}"
+                    required="true"
+                    validator="#{conductoresBean.validateLicencia}"
+                    >
+                    <f:attribute
+                        name="requiredMessage"
+                        value="#{msg_conductores.licencia_req}"
+                        />
+                </p:inputText>
+                <p:message for="licencia" styleClass="errormsg" />
+
+                <h:outputText value="#{msg_vehiculos.subtitle}" style="font-weight: bold;" />
+                <p:outputLabel value=""/>
+                <p:outputLabel value=""/>
+                
+                <p:outputLabel value="#{msg_conductores.placa}" for="placa" />
+                <p:inputText
+                    id="placa"
+                    label="#{msg_conductores.placa}"
+                    value=""
+                    required="true"
+                    validator="#{conductoresBean.validatePlaca}"
+                    >
+                    <f:attribute
+                        name="requiredMessage"
+                        value="#{msg_conductores.placa_req}"
+                        />
+                </p:inputText>
+                <p:message for="placa" styleClass="errormsg" />
+                
+                <p:outputLabel value="#{msg_vehiculos.modelo}" for="modelo" />
+                <p:inputText
+                    id="modelo"
+                    label="#{msg_vehiculos.modelo}"
+                    value=""
+                    required="true"
+                    >
+                    <f:attribute
+                        name="requiredMessage"
+                        value="#{msg_vehiculos.modelo_req}"
+                        />
+                </p:inputText>
+                <p:message for="modelo" styleClass="errormsg" />
+                
+                <p:outputLabel value="#{msg_vehiculos.marca}" for="marca" />
+                <p:inputText
+                    id="marca"
+                    label="#{msg_vehiculos.marca}"
+                    value=""
+                    required="true"
+                    >
+                    <f:attribute
+                        name="requiredMessage"
+                        value="#{msg_vehiculos.marca_req}"
+                        />
+                </p:inputText>
+                <p:message for="marca" styleClass="errormsg" />
+                
+                <p:outputLabel value="#{msg_vehiculos.anio_fabricacion}" for="anio_fabricacion" />
+                <p:inputText
+                    id="anio_fabricacion"
+                    label="#{msg_vehiculos.anio_fabricacion}"
+                    value=""
+                    required="true"
+                    >
+                    <f:attribute
+                        name="requiredMessage"
+                        value="#{msg_vehiculos.anio_fabricacion_req}"
+                        />
+                </p:inputText>
+                <p:message for="anio_fabricacion" styleClass="errormsg" />
+                
+                <p:outputLabel value="#{msg_vehiculos.color}" for="color" />
+                <p:inputText
+                    id="color"
+                    label="#{msg_vehiculos.color}"
+                    value=""
+                    required="true"
+                    >
+                    <f:attribute
+                        name="requiredMessage"
+                        value="#{msg_vehiculos.color_req}"
+                        />
+                </p:inputText>
+                <p:message for="color" styleClass="errormsg" />
+                
+                <p:outputLabel value="#{msg_vehiculos.capacidad_pasajeros}" for="capacidad_pasajeros" />
+                <p:inputText
+                    id="capacidad_pasajeros"
+                    label="#{msg_vehiculos.capacidad_pasajeros}"
+                    value=""
+                    required="true"
+                    >
+                    <f:attribute
+                        name="requiredMessage"
+                        value="#{msg_vehiculos.capacidad_pasajeros_req}"
+                        />
+                </p:inputText>
+                <p:message for="capacidad_pasajeros" styleClass="errormsg" />
+                
+                
+            </p:panelGrid>
+
+            <h2>Primefaces - Captcha</h2>       
+            <p:messages id="msg" />
+            <p:captcha id="captcha"></p:captcha>
+            <br/>
+            
+            <p:commandButton value="Check" actionListener="#{captcha.check}" ajax="false"></p:commandButton>
+            
+            <p:remoteCommand name="guardarConductores" action="#{conductoresBean.guardar()}" />
+
+            <p:remoteCommand name="guardarVehiculos" action="#{vehiculosBean.guardar()}" />
+
+            <p:commandButton id="x1" value="Submit" 
+                             onclick="guardarConductores(); guardarVehiculos();" 
+                             action="submit" 
+                             update="@form:x1" 
+                             />
+
+            <h:message for="myButton" />
+        </h:form>
+    </h:body>
+</html>

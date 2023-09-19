@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+         <link href="css/style.css" rel="stylesheet" type="text/css"></link>
+         <title><h:outputText value="#{msg_conductores.title}"/></title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>
+                <h:outputText value="#{msg_conductores.subtitle} y #{msg_vehiculos.subtitle}" />
+            </h1>
+            <h:panelGrid columns="2">
+                <h:outputText value="#{msg_conductores.cedula}" />
+                <h:outputText value="${conductoresBean.cedula}"></h:outputText>
+                
+                <h:outputText value="#{msg_conductores.nombre}" />
+                <h:outputText value="${conductoresBean.nombre}"></h:outputText>
+                
+                <h:outputText value="#{msg_conductores.fecha_nacimiento}"/>
+                <h:outputText value="${conductoresBean.fecha_nacimiento}"></h:outputText>
+                
+                <h:outputText value="#{msg_conductores.licencia}" />
+                <h:outputText value="${conductoresBean.licencia}"></h:outputText>
+                
+                <h:outputText value="#{msg_vehiculos.placa}" />
+                <h:outputText value="${vehiculosBean.placa}"></h:outputText>
+                
+                <h:outputText value="#{msg_vehiculos.modelo}" />
+                <h:outputText value="${vehiculosBean.modelo}"></h:outputText>
+                
+                <h:outputText value="#{msg_vehiculos.marca}" />
+                <h:outputText value="${vehiculosBean.marca}"></h:outputText>
+                
+                <h:outputText value="#{msg_vehiculos.anio_fabricacion}" />
+                <h:outputText value="${vehiculosBean.anioFabricacion}"></h:outputText>
+                
+                <h:outputText value="#{msg_vehiculos.color}" />
+                <h:outputText value="${vehiculosBean.color}"></h:outputText>
+
+                <h:outputText value="#{msg_vehiculos.capacidad_pasajeros}" />
+                <h:outputText value="${vehiculosBean.capacidadPasajeros}"></h:outputText>
+                
+                <p:column headerText="Qr Code">
+                    <p:barcode value="#{conductoresBean.cedula} #{conductoresBean.nombre} #{vehiculosBean.placa}" type="qr" />
+                </p:column>
+            </h:panelGrid>
+            <h:commandButton value="Back" action="back" />
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,9 @@
+.errormsg {
+    color: red;
+}
+
+/* Estilo para las imágenes de las banderas */
+.bandera {
+    width: 255px; /* Ancho deseado */
+    height: 170px; /* Altura deseada */
+}
